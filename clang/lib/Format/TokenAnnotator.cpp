@@ -3870,6 +3870,13 @@ bool TokenAnnotator::spaceRequiredBetween(const AnnotatedLine &Line,
     // void Fn() const &;
     return getTokenReferenceAlignment(Right) != FormatStyle::PAS_Left;
   }
+  // Space around multiplication and division operators. (a*a vs a * a)
+  if (!Style.SpaceAroundMultiplyDivideOperators) {
+    if ((Right.is(TT_BinaryOperator) && Right.isOneOf(tok::star, tok::slash)) ||
+        (Left.is(TT_BinaryOperator) && Left.isOneOf(tok::star, tok::slash))) {
+      return false;
+    }
+  }
 
   return true;
 }

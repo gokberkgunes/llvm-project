@@ -995,6 +995,8 @@ template <> struct MappingTraits<FormatStyle> {
     IO.mapOptional("SpaceAfterLogicalNot", Style.SpaceAfterLogicalNot);
     IO.mapOptional("SpaceAfterTemplateKeyword",
                    Style.SpaceAfterTemplateKeyword);
+    IO.mapOptional("SpaceAroundMultiplyDivideOperators",
+                   Style.SpaceAroundMultiplyDivideOperators);
     IO.mapOptional("SpaceAroundPointerQualifiers",
                    Style.SpaceAroundPointerQualifiers);
     IO.mapOptional("SpaceBeforeAssignmentOperators",
@@ -1424,6 +1426,7 @@ FormatStyle getLLVMStyle(FormatStyle::LanguageKind Language) {
   LLVMStyle.SpaceAfterCStyleCast = false;
   LLVMStyle.SpaceAfterLogicalNot = false;
   LLVMStyle.SpaceAfterTemplateKeyword = true;
+  LLVMStyle.SpaceAroundMultiplyDivideOperators = true;
   LLVMStyle.SpaceAroundPointerQualifiers = FormatStyle::SAPQ_Default;
   LLVMStyle.SpaceBeforeCaseColon = false;
   LLVMStyle.SpaceBeforeCtorInitializerColon = true;

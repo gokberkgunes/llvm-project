@@ -3593,6 +3593,15 @@ struct FormatStyle {
   /// \version 4
   bool SpaceAfterTemplateKeyword;
 
+  /// Do not add whitespace around the multiplication and division operators.
+  /// \code
+  ///    true:                                  false:
+  ///    int x = 2*8 + 3*9/3;             vs.   int x = 2 * 8 + 3 * 9 / 3;
+  /// \endcode
+  /// \version 16
+  bool SpaceAroundMultiplyDivideOperators;
+
+
   /// Different ways to put a space before opening parentheses.
   enum SpaceAroundPointerQualifiersStyle : int8_t {
     /// Don't ensure spaces around pointer qualifiers and use PointerAlignment
@@ -4277,6 +4286,8 @@ struct FormatStyle {
            SpaceAfterCStyleCast == R.SpaceAfterCStyleCast &&
            SpaceAfterLogicalNot == R.SpaceAfterLogicalNot &&
            SpaceAfterTemplateKeyword == R.SpaceAfterTemplateKeyword &&
+           SpaceAroundMultiplyDivideOperators ==
+               R.SpaceAroundMultiplyDivideOperators &&
            SpaceBeforeAssignmentOperators == R.SpaceBeforeAssignmentOperators &&
            SpaceBeforeCaseColon == R.SpaceBeforeCaseColon &&
            SpaceBeforeCpp11BracedList == R.SpaceBeforeCpp11BracedList &&
